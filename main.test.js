@@ -1,8 +1,5 @@
-// const { default: test } = require('node:test');
-// const { describe } = require('yargs');
-// const { default: test, it } = require('node:test');
-const { capitalize, reverseString, calculator, caesarCipher } = require('./main');
-// const { describe } = require('yargs');
+const { capitalize, reverseString, calculator, caesarCipher, analyzeArray } = require('./main');
+
 
 describe('capitalizes the first letter', () => {
     it('test - 1', () => {
@@ -63,5 +60,17 @@ describe('Caesar Ciphers the text', () => {
     })
     it('test - 4', () => {
         expect(caesarCipher('Hello, World!', 3)).toMatch(/Khoor, Zruog!/);
+    })
+})
+
+describe('Analyzes the array', () => {
+    it('test - 1', () => {
+        expect(analyzeArray([1])).toEqual({ average: 1, min: 1, max: 1, length: 1 });
+    })
+    it('test - 2', () => {
+        expect(analyzeArray([1, 8, 3, 4, 2, 6])).toEqual({ average: 4, min: 1, max: 8, length: 6 });
+    })
+    it('test - 3', () => {
+        expect(analyzeArray([1, 8, 1009, 3, 4, 2, 6, 8, 10, 506, 0])).toEqual({ average: 141.54545454545453, min: 0, max: 1009, length: 11 });
     })
 })
